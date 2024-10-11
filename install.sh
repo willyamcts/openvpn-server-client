@@ -7,8 +7,6 @@
 OPENVPN_VERSION=2.6.12
 CONFIG_DIR=/etc/openvpn
 
-cd /usr/src
-
 # requeriments
 apt update
 apt install gcc pkg-config make \
@@ -17,6 +15,7 @@ apt install gcc pkg-config make \
  libpam0g-dev -y
 
 # download openvpn version $OPENVPN_VERSION
+cd /usr/src
 wget https://github.com/OpenVPN/openvpn/releases/download/v${OPENVPN_VERSION}/openvpn-${OPENVPN_VERSION}.tar.gz
 tar -xf openvpn-${OPENVPN_VERSION}.tar.gz
 cd openvpn-${OPENVPN_VERSION}
