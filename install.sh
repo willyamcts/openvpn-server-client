@@ -6,6 +6,7 @@
 
 OPENVPN_VERSION=2.6.12
 CONFIG_DIR=/usr/local/openvpn
+CERT_DIR=${CONFIG_DIR}/cert
 
 # requeriments
 apt update
@@ -21,11 +22,17 @@ wget -O openvpn-${OPENVPN_VERSION}.tar.gz \
 tar -xf openvpn-${OPENVPN_VERSION}.tar.gz
 cd openvpn-${OPENVPN_VERSION}
 
+
 # compile/install
 mkdir -p $CONFIG_DIR
 ./configure --sysconfdir=$CONFIG_DIR
 make -j$(nproc)
 make install #DESTDIR=/usr/src/openvpn
+
+# create certs
+...
+chmod 640 $CERT_DIR/*.key
+...
 
 # running
 /usr/local/sbin/openvpn --cd $CONFIG_DIR --config server.conf
