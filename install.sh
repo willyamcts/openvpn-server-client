@@ -47,9 +47,19 @@ L2V0Yy9vcGVudnBuL2NoZWNrcGFzc3dkLnNoIHZpYS1maWxlCnZlcmlmeS1jbGllbnQtY2VydCBv
 cHRpb25hbAojdXNlcm5hbWUtYXMtY29tbW9uLW5hbWUKCiNjbGllbnQtY29uZmlnLWRpciAvZXRj
 L29wZW52cG4vY2NkCiNjY2QtZXhjbHVzaXZlCgojIyBzZXQgcm91dGUKcHVzaCAicm91dGUgMTky
 LjE2OC4wLjAgMjU1LjI1NS4yNTUuMCIKIyMgc2V0IEROUyBsb2NhbApwdXNoICJkaGNwLW9wdGlv
-biBETlMgMS4xLjEuMSIK' | base64 -d > $SERVER_DIR/server.conf
+biBETlMgMS4xLjEuMSIK' |base64 -d > $SERVER_DIR/server.conf
 
+# TODO: Check permissions
+# TODO: Cipher passwords, change to binary maybe
+echo 'IyEvYmluL2Jhc2gKVVNFUj0kMQpQQVNTPSQyCgplY2hvICIkVVNFUjokUEFTUyIgPiAvdG1wL3Ry
+eS5vdnBuCgojIENhbWluaG8gcGFyYSBvIGFycXVpdm8gZGUgc2VuaGFzClBBU1NGSUxFPSIvZXRj
+L29wZW52cG4vcGFzc3dkLmZpbGUiCkNPUlJFQ1RfUEFTUz0kKGdyZXAgIl4kVVNFUjoiICRQQVNT
+RklMRSB8IGN1dCAtZCAiOiIgLWYgMikKCmlmIFsgIiRDT1JSRUNUX1BBU1MiID09ICIkUEFTUyIg
+XTsgdGhlbgogIGVjaG8gIk9LIiA+PiAvdG1wL3RyeS5vdnBuCiAgZXhpdCAwCmVsc2UKICBlY2hv
+ICJGQUlMIiA+PiAvdG1wL3RyeS5vdnBuCiAgZXhpdCAxCmZpCg==' |base64 -d > $SERVER_DIR/checkpasswd.sh
+chmod +x $SERVER_DIR/checkpasswd.sh
 
+echo 'dXNlcjoxMjMKdXNlcjE6MTIzCg==' |base64 -d > $SERVER_DIR/passwd.file
 
 # Manage certificates
 apt install easy-rsa
