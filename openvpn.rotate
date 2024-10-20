@@ -1,0 +1,24 @@
+/var/log/openvpn/releases.txt {
+  olddir /var/log/openvpn/rotate
+  dateext
+  rotate 30
+  daily
+  copy
+  compress
+  notifempty
+  maxage 60
+}
+
+/var/log/openvpn/* {
+  olddir /var/log/openvpn/rotate
+  rotate 5
+  weekly
+  minsize 5M
+#  size 5M
+  compress
+  notifempty
+  maxage 60
+#  postrotate
+#    /usr/bin/killall -HUP openvpn
+#  endscript
+}
